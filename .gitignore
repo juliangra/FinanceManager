@@ -27,3 +27,4 @@ hs_err_pid*
 .idea/
 FinanceManager/src/main/resources/application.properties
 FinanceManager/src/target/classes/application.properties
+
