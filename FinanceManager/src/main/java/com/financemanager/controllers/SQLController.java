@@ -40,12 +40,7 @@ public class SQLController implements DatabaseController {
 
         PreparedStatement statement = connection.prepareStatement("INSERT INTO Person (FirstName, LastName, Email, Password, Balance, AccountNumber) VALUES (?, ?, ?, ?, ?, ?);");
 
-        statement.setString(1, person.getFirstName());
-        statement.setString(2, person.getLastName());
-        statement.setString(3, person.getEmail());
-        statement.setString(4, person.getPassword());
-        statement.setDouble(5, person.getBalance());
-        statement.setInt(6, person.getAccountNumber());
+        setStatement(person, statement);
 
         statement.executeUpdate();
     }
@@ -78,18 +73,32 @@ public class SQLController implements DatabaseController {
     }
 
     public void update(Person person) throws SQLException {
-        logger.info("Updating data in the database");
+        logger.info("Updating the database");
 
         PreparedStatement statement = connection.prepareStatement("UPDATE Person SET FirstName = ?, LastName = ?, Email = ?, Password = ?, Balance = ?, AccountNumber = ? WHERE PersonId = ?");
 
+        setStatement(person, statement);
+        statement.setLong(7, person.getId());
+
+        statement.executeUpdate();
+    }
+
+    public void delete(Person person) throws SQLException {
+        logger.info("Deleting from the database");
+
+        PreparedStatement statement = connection.prepareStatement("DELETE FROM Person WHERE PersonId = ?");
+
+        statement.setLong(1, person.getId());
+
+        statement.executeUpdate();
+    }
+
+    private void setStatement(Person person, PreparedStatement statement) throws SQLException {
         statement.setString(1, person.getFirstName());
         statement.setString(2, person.getLastName());
         statement.setString(3, person.getEmail());
         statement.setString(4, person.getPassword());
         statement.setDouble(5, person.getBalance());
         statement.setInt(6, person.getAccountNumber());
-        statement.setLong(7, person.getId());
-
-        statement.executeUpdate();
     }
 }

@@ -46,4 +46,6 @@ public interface DatabaseController {
      * @throws SQLException if database service fails.
      */
     void update(Person person) throws SQLException;
+
+    void delete(Person person) throws SQLException;
 }

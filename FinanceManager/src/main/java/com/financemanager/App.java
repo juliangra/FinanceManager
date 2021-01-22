@@ -49,47 +49,11 @@ public class App extends Application {
             e.printStackTrace();
         }
 
-        var person = new Person(
-                "John",
-                "Doe",
-                "john.doe@gmail.com",
-                "securepassword",
-                100d,
-                123456789
-        );
-
-        try {
-            sqlController.insert(person);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        Person person1 = null;
-        try {
-            person1 = sqlController.read("SELECT * FROM Person WHERE PersonId=1");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println(person1);
-
-        person.setFirstName("Magnus");
-        person.setLastName("Rødseth");
-
-        try {
-            sqlController.update(person);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
         try {
             sqlController.closeDatabaseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
-
-//        deleteData(todo, connection);
 
         launch();
     }
