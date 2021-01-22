@@ -1,7 +1,6 @@
 package com.financemanager;
 
 import com.financemanager.controllers.SQLController;
-import com.financemanager.models.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
