@@ -1,5 +1,6 @@
 package com.financemanager;
 
+import com.financemanager.controllers.SQLController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * JavaFX App
@@ -32,6 +34,26 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        var sqlController = new SQLController();
+
+        try {
+            sqlController.loadApplicationProperties();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            sqlController.connectToDatabase();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            sqlController.closeDatabaseConnection();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         launch();
     }
 
