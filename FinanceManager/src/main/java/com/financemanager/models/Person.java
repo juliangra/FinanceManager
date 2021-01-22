@@ -1,17 +1,15 @@
 package com.financemanager.models;
 
-import com.financemanager.utils.Email;
-
-public class User {
+public class Person {
     private long id;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
     private double balance;
+    private int accountNumber;
 
-    public User(
-            long id,
+    public Person(
             String firstName,
             String lastName,
             String email,
@@ -19,7 +17,6 @@ public class User {
             double balance,
             int accountNumber
     ) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -31,8 +28,6 @@ public class User {
     public int getAccountNumber() {
         return accountNumber;
     }
-
-    private int accountNumber;
 
     public long getId() {
         return id;
@@ -80,7 +75,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Person{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +

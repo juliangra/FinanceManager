@@ -1,6 +1,7 @@
 package com.financemanager;
 
 import com.financemanager.controllers.SQLController;
+import com.financemanager.models.Person;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -48,11 +49,31 @@ public class App extends Application {
             e.printStackTrace();
         }
 
+        var person = new Person(
+                "John",
+                "Doe",
+                "john.doe@gmail.com",
+                "securepassword",
+                100d,
+                123456789
+        );
+
+        try {
+            sqlController.insert(person);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         try {
             sqlController.closeDatabaseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+//        todo = readData(connection);
+//        todo.setDetails("congratulations, you have updated data!");
+//        updateData(todo, connection);
+//        deleteData(todo, connection);
 
         launch();
     }
