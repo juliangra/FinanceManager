@@ -66,11 +66,20 @@ public class App extends Application {
 
         Person person1 = null;
         try {
-            person1 = sqlController.read();
+            person1 = sqlController.read("SELECT * FROM Person WHERE PersonId=1");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         System.out.println(person1);
+
+        person.setFirstName("Magnus");
+        person.setLastName("Rødseth");
+
+        try {
+            sqlController.update(person);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         try {
             sqlController.closeDatabaseConnection();
@@ -79,8 +88,7 @@ public class App extends Application {
         }
 
 
-        //        todo.setDetails("congratulations, you have updated data!");
-//        updateData(todo, connection);
+
 //        deleteData(todo, connection);
 
         launch();

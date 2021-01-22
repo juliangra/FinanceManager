@@ -50,11 +50,11 @@ public class SQLController implements DatabaseController {
         statement.executeUpdate();
     }
 
-    public Person read() throws SQLException {
+    public Person read(String query) throws SQLException {
         logger.info("Read from the database");
 
         // TODO: Implement support for specific queries
-        PreparedStatement statement = connection.prepareStatement("SELECT * FROM Person");
+        PreparedStatement statement = connection.prepareStatement(query);
 
         ResultSet resultSet = statement.executeQuery();
 
@@ -75,5 +75,21 @@ public class SQLController implements DatabaseController {
         logger.info("Data read from database: " + person);
 
         return person;
+    }
+
+    public void update(Person person) throws SQLException {
+        logger.info("Updating data in the database");
+
+        PreparedStatement statement = connection.prepareStatement("UPDATE Person SET FirstName = ?, LastName = ?, Email = ?, Password = ?, Balance = ?, AccountNumber = ? WHERE PersonId = ?");
+
+        statement.setString(1, person.getFirstName());
+        statement.setString(2, person.getLastName());
+        statement.setString(3, person.getEmail());
+        statement.setString(4, person.getPassword());
+        statement.setDouble(5, person.getBalance());
+        statement.setInt(6, person.getAccountNumber());
+        statement.setLong(7, person.getId());
+
+        statement.executeUpdate();
     }
 }
