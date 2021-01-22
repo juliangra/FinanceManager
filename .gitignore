@@ -25,3 +25,5 @@ hs_err_pid*
 # Custom ignores
 .DS_Store
 .idea/
+FinanceManager/src/main/resources/application.properties
+FinanceManager/src/target/classes/application.properties
