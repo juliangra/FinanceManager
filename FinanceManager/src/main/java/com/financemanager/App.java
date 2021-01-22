@@ -64,14 +64,22 @@ public class App extends Application {
             e.printStackTrace();
         }
 
+        Person person1 = null;
+        try {
+            person1 = sqlController.read();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(person1);
+
         try {
             sqlController.closeDatabaseConnection();
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-//        todo = readData(connection);
-//        todo.setDetails("congratulations, you have updated data!");
+
+        //        todo.setDetails("congratulations, you have updated data!");
 //        updateData(todo, connection);
 //        deleteData(todo, connection);
 

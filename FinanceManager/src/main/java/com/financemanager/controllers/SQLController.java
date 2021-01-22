@@ -3,10 +3,7 @@ package com.financemanager.controllers;
 import com.financemanager.models.Person;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -51,5 +48,32 @@ public class SQLController implements DatabaseController {
         statement.setInt(6, person.getAccountNumber());
 
         statement.executeUpdate();
+    }
+
+    public Person read() throws SQLException {
+        logger.info("Read from the database");
+
+        // TODO: Implement support for specific queries
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM Person");
+
+        ResultSet resultSet = statement.executeQuery();
+
+        if (!resultSet.next()) {
+            logger.warning("There is no data in the database.");
+            return null;
+        }
+
+        var person = new Person();
+        person.setId(resultSet.getLong("PersonId"));
+        person.setFirstName(resultSet.getString("FirstName"));
+        person.setLastName(resultSet.getString("LastName"));
+        person.setEmail(resultSet.getString("Email"));
+        person.setPassword(resultSet.getString("Password"));
+        person.setBalance(resultSet.getDouble("Balance"));
+        person.setAccountNumber(resultSet.getInt("AccountNumber"));
+
+        logger.info("Data read from database: " + person);
+
+        return person;
     }
 }

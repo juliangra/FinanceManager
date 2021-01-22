@@ -25,12 +25,16 @@ public class Person {
         this.accountNumber = accountNumber;
     }
 
-    public int getAccountNumber() {
-        return accountNumber;
+    public Person() {
+
     }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -71,6 +75,14 @@ public class Person {
 
     public void setBalance(double balance) {
         this.balance = balance;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     @Override
