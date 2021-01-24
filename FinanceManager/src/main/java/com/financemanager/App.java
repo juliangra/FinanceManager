@@ -17,15 +17,13 @@ import java.sql.SQLException;
 public class App extends Application {
 
     private static Scene scene;
-    private double screenHeight;
-    private double screenWidth;
 
     @Override
     public void start(Stage stage) throws IOException {
         // Set window dimensions based on screen dimensions
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        screenHeight = screenSize.getHeight() * 0.85;
-        screenWidth = screenSize.getWidth() * 0.35;
+        double screenHeight = screenSize.getHeight() * 0.85;
+        double screenWidth = screenSize.getWidth() * 0.35;
 
         scene = new Scene(loadFXML("views/Login"), screenWidth, screenHeight);
         stage.setScene(scene);
