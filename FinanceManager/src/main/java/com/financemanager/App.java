@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -16,10 +17,17 @@ import java.sql.SQLException;
 public class App extends Application {
 
     private static Scene scene;
+    private double screenHeight;
+    private double screenWidth;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 480);
+        // Set window dimensions based on screen dimensions
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        screenHeight = screenSize.getHeight() * 0.85;
+        screenWidth = screenSize.getWidth() * 0.35;
+
+        scene = new Scene(loadFXML("views/Login"), screenWidth, screenHeight);
         stage.setScene(scene);
         stage.show();
     }
