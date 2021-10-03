@@ -26,18 +26,6 @@ Created by Magnus Rødseth and Julian Grande.
 
 ## Color Codes 🎨
 
-![midnight-green >](project/src/main/resources/financemanager/images/colour_scheme/midnight-green.png) midnight-green: #104F55  
-![myrtle-green](project/src/main/resources/financemanager/images/colour_scheme/myrtle-green.png) myrtle-green: #32746D  
-![cambridge-blue](project/src/main/resources/financemanager/images/colour_scheme/cambridge-blue.png) cambridge-blue: #9EC5AB  
-![dark-green](project/src/main/resources/financemanager/images/colour_scheme/dark-green.png) dark-green: #01200F
-
-### Persistent storage 📦
-
-The application supports persistent storage of users, accounts and transactions. These JSON files are located in the
-following path: `~/financemanager/storage`.
-
-## Color Codes 🎨
-
 ![midnight-green >](project/src/main/resources/financemanager/images/colour_scheme/midnight-green.png) midnight-green:
 #104F55  
 ![myrtle-green](project/src/main/resources/financemanager/images/colour_scheme/myrtle-green.png) myrtle-green:
@@ -46,6 +34,12 @@ following path: `~/financemanager/storage`.
 #9EC5AB  
 ![dark-green](project/src/main/resources/financemanager/images/colour_scheme/dark-green.png) dark-green: #01200F  
 ![jungle-green](project/src/main/resources/financemanager/images/colour_scheme/jungle-green.png) jungle-green: #011502
+
+
+### Persistent storage 📦
+
+The application supports persistent storage of users, accounts and transactions. These JSON files are located in the
+following path: `~/financemanager/storage`.
 
 ## FXML Views 👨‍🎨
 
